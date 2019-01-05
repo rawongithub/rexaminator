@@ -1,0 +1,7 @@
+<h2>Admin Panel</h2>
+<%= form_tag sessions_path do %>
+  <p>Login: <%= text_field_tag :login %></p>
+  <p>Password: <%= password_field_tag %></p>
+  <p><%= submit_tag "Login" %> </p>
+<% end %>
+

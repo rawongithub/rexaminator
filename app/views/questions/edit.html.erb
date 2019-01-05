@@ -1,0 +1,9 @@
+<h2>Editing question id: <%= @question.id %></h2>
+
+<%= render :partial => "form", :locals => {:submit_text => "Update"} %>
+
+<%= render :partial => "feedbacks" %>
+
+<%= link_to 'Show Question', @question %> |
+<%= link_to 'Questions', questions_path %>
+

@@ -1,0 +1,52 @@
+<div id="pagination_container">
+  <%= will_paginate @questions,
+                    :param_name => 'question',
+                    :id => 'questions_pagination',
+                    :inner_window => @exam_questions.size,
+                    :outer_window => @exam_questions.size,
+                    :params => {:aasm_links => @exam.questions_states},
+                    :renderer => PaginationListLinkRenderer
+  %>
+</div>
+<div id="question">
+  <%= will_paginate @questions,
+                    :param_name => 'question',
+                    :page_links => false
+  %>
+  <div id="finish_button">
+    <%= link_to 'Finish Exam', finish_exam_path(@exam), :confirm => "Finish Exam?", :class => "rbutton", :title => "Finish Exam And Find Your Score" %>
+  </div>
+  <%= form_for @exam_question, :remote => true do |f| %>
+    <h2>Question <%= @question_number %> of <%= @num_of_questions %></h2>
+    <div class="rbox question_body">
+      <p><%=raw textilize(@question.body) %></p>
+    </div>
+    <div id="answers" class="rbox">
+      <div id="newexamloader"></div>
+      <table class="answers_go">
+        <% @question.answers.each_with_index do |answer, index| -%>
+          <tr>
+            <td class="checkbox">
+              <%= f.check_box "answer#{index+1}" %>
+            </td>
+            <td class="answer"><%=raw textilize(answer.body) %></td>
+          </tr>
+        <% end -%>
+      </table>
+      <%= f.submit "Save/Update Answer", id: "exam_question_submit" %>
+    </div>
+  <% end -%>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+  $('#edit_exam_question_<%= @exam_question.id %> :checkbox').change(function(){
+    $('#newexamloader').show();
+    $("#edit_exam_question_<%= @exam_question.id %>").submit();
+  })
+
+//]]>
+</script>
+
+

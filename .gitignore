@@ -1,0 +1,4 @@
+log/*.log
+tmp/**/*
+chromedriver.log
+config/database.yml

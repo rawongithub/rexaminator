@@ -1,0 +1,8 @@
+<div class="center">
+  <h2>New exam has been successfully generated.</h2>
+  <p>Number of questions: <strong><%= @num_of_questions %></strong></p>
+  <ul id="startmenu">
+    <li><%= link_to "Start Exam", go_exam_url(@exam), :class => "rbutton", :title => "Examine your Ruby knowledge online" %></li>
+  </ul>
+</div>
+

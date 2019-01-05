@@ -1,0 +1,28 @@
+<h2>Categories</h2>
+
+<%= link_to 'New category', new_category_path %>
+
+<table class="listing">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+<% for category in @categories %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= category.id %></td>
+    <td><%= category.name %></td>
+    <td><%= category.description %></td>
+    <td>
+      <div><%= link_to 'Show', category %></div>
+      <div><%= link_to 'Edit', edit_category_path(category) %></div>
+      <div><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></div>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

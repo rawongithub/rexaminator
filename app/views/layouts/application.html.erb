@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="Ruby exam simulator - multichoice online test. Learn and test your knowledge about Ruby programming language." />
+  <meta name="keywords" content="ruby, exam, online, learn, test, rexaminator, education" />
+  <meta name="author" content="Rafal Wrzochol aka RaW" />
+  <meta name="google-site-verification" content="ePR5R1yyK23b52usDG-uM1nmixSpf6UIMvI1nx7q_TY" />
+  <meta name="google-site-verification" content="dPJq6W63TgsJLOxqJ8Tq1hQfhqQM7l3af-5gFnE4jZU" />
+  <meta name="verifyownership" content="9584fe45d6021c7e92bb996211b542c3" />
+  <title>Rexaminator: Ruby Online Exam Simulator</title>
+  <%= stylesheet_link_tag 'reset', 'layout', 'main', :media => 'all', :cache => 'cached' %>
+  <%= javascript_include_tag 'jquery', 'jquery-ui', 'rails', 'jquery.autogrow', 'application', :cache => 'cached' %>
+  <%= csrf_meta_tag %>
+</head>
+
+<body>
+
+<div id="page">
+  <div id="header">
+    <h1>rexaminator</h1>
+
+    <div id="nav">
+      <ul>
+        <li class="first"><%= link_to_unless_current "New Exam", new_exam_path %></li>
+        <% if @admin %>
+        <li><%= link_to_unless_current "Questions",  questions_path %></li>
+        <li><%= link_to_unless_current "Categories", categories_path %></li>
+        <li><%= link_to_unless_current "Exams",      exams_path %></li>
+        <li><%= link_to_unless_current "Feedbacks",  feedbacks_path %></li>
+        <li><%= link_to_unless_current "LogOut",     logout_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div id="wrap">
+    <div id="content">
+      <% if flash[:error] -%>
+        <p class="error"><%= flash[:error] %></p>
+      <% end -%>
+      <% if flash[:notice] -%>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end -%>
+      <%= yield  %>
+    </div>
+  </div>
+
+  <div id="copyright">
+    <p>
+      2009-2013 &copy; <%= link_to 'rexaminator', 'http://rexaminator', :title => 'rexaminator homepage' %>
+    </p>
+  </div>
+
+</body>
+</html>
+

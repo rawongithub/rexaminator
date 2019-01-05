@@ -1,0 +1,99 @@
+<%= link_to '&laquo; Back'.html_safe, finish_exam_path(:id => @exam_question.exam.id), :class => "navlink" %>
+<h2>Question <%= @order_number %></h2>
+<div class="rbox question_body">
+  <p><%=raw textilize(@question.body) %></p>
+</div>
+<h3>Answers</h3>
+<div id="answers" class="rbox">
+  <table class="answers_review">
+    <tr>
+      <th colspan="2">Correct answers</th>
+      <th>Your&nbsp;answers</th>
+    </tr>
+    <% @question.answers.each_with_index do |answer, index| %>
+      <% given_answer = @exam_question.send("answer#{index+1}") %>
+      <tr class="<%= answer.accurate?(given_answer) %>">
+        <td class="checkbox"><%= check_box_tag "correct_answer#{index+1}", '', answer.correct, :disabled => true %></td>
+        <td class="answer"><%=raw textilize(answer.body) %></td>
+        <td class="checkbox <%= answer.accurate?(given_answer) %>"><%= check_box_tag "user_answer#{index+1}", '', given_answer, :disabled => true %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<% unless @question.comment.nil? %>
+<h3>Comment</h3>
+<div class="rbox">
+  <p><%=raw textilize(@question.comment) %></p>
+</div>
+<% end %>
+
+<h3>Feedback</h3>
+<p id="feedback_link">
+  Spotted a bug in this question? Or just want to leave a comment? Then you can give me your
+  <a class="jslink" title="Click Here To Give A Feedback">feedback</a> right now. Thanks.
+</p>
+<div id="feedback" class="rbox">
+  <% if @feedback.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
+      <ul>
+      <% @feedback.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_for @feedback do |f| -%>
+    <h4>Subject</h4>
+    <p>
+      <%= f.select :category, @feedback_category_options %>
+    </p>
+    <h4>Body</h4>
+    <p>
+      <%= f.text_area :body, :cols => 80, :rows => 5 %>
+    </p>
+    <h4>Author</h4>
+    <p>
+      <%= f.text_field :author %>
+    </p>
+    <p>
+      <%= f.hidden_field :question_id %>
+      <%= hidden_field_tag :exam_question_id, @exam_question.id %>
+      <%= hidden_field_tag :order_number, @order_number %>
+      <%= f.submit 'Send Feedback' %>
+      <a id="cancel_submit">Cancel</a>
+    </p>
+  <% end -%>
+
+</div>
+
+<div id="newexamloader"></div>
+
+<script type="text/javascript">
+// <![CDATA[
+
+$(document).ready(function(){
+
+  $('p#feedback_link a.jslink').bind('click', function(){
+    $('#feedback').toggle('slow');
+  })
+
+  $.ajaxSetup({
+    'beforeSend': function(xhr) {xhr.setRequestHeader('Accept', 'text/javascript')}
+  })
+
+  $('form#new_feedback').submit(function(){
+    $('#newexamloader').show();
+    $.post($(this).attr('action'), $(this).serialize(), null, 'script');
+    return false;
+  })
+
+  $('#cancel_submit').click(function(){
+    $('#feedback').hide('slow');
+  })
+
+})
+
+// ]]>
+</script>
+

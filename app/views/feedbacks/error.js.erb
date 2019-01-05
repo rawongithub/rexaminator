@@ -1,0 +1,13 @@
+$('#newexamloader').hide();
+$('#errorExplanation').remove();
+$('p.notice').remove();
+$('#new_feedback').before("<div id='errorExplanation'> \
+                             <h2>Invalid feedback data. Please correct and try again</h2> \
+                             <ul> \
+                                <% @feedback.errors.full_messages.each do |msg| %> \
+                               <li><%= msg %></li> \
+                               <% end %> \
+                             </ul> \
+                           </div> \
+                          ");
+

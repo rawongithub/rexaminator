@@ -1,0 +1,17 @@
+<h2 class="center">Your Score: <span id="score"><%= number_to_percentage(@exam.score, :precision => 0) %></span></h2>
+
+<ul id="scoresummary">
+  <li title="Total number of questions">total: <%= @exam_questions_total%>,</li>
+  <li title="Number of questions visited">viewed: <%= @exam_questions_viewed %>,</li>
+  <li title="Number of questions with any answer given">completed: <%= @exam_questions_completed %>,</li>
+  <li title="Number of questions with correct answers">correct: <%= @exam_questions_accurate %></li>
+</ul>
+
+<ol class="questions_summary">
+  <% @exam_questions.each_with_index do |exam_question, index| %>
+    <% accurate = exam_question.accurate? %>
+    <li title="Click to review question and answers"><%= link_to "Q#{index+1}: <span class=\"#{accurate}\">#{accurate}</span>".html_safe, review_exam_question_path(:id => exam_question.id, :order_number => index+1) %></li>
+  <% end %>
+</ol>
+
+<div class="center"><%= link_to "&laquo; New Exam &raquo;".html_safe, new_exam_path %></div>

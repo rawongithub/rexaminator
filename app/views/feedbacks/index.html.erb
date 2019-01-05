@@ -1,0 +1,30 @@
+<h1>Feedbacks</h1>
+<table class="listing">
+  <tr>
+    <th>Id</th>
+    <th>Active</th>
+    <th>Category</th>
+    <th>Body</th>
+    <th>Author</th>
+    <th>Created</th>
+    <th>Question</th>
+    <th></th>
+  </tr>
+<% for feedback in @feedbacks -%>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= feedback.id  %></td>
+    <td><%= feedback.active %></td>
+    <td><%= feedback.category %></td>
+    <td><%= truncate(feedback.body, :length => 120) %></td>
+    <td><%= feedback.author %></td>
+    <td><%= feedback.created_at.to_date %> </td>
+    <td><%=link_to feedback.question_id, question_path(feedback.question) %></td>
+    <td>
+      <div><%= link_to 'Show', feedback %></div>
+      <div><%= link_to 'Edit', edit_feedback_path(feedback) %></div>
+      <div><%= link_to 'Destroy', feedback, :confirm => 'Are you sure?', :method => :delete %></div>
+    </td>
+  </tr>
+<% end -%>
+</table>
+

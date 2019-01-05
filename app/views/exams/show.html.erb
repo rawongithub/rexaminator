@@ -1,0 +1,29 @@
+<h3>Exam Id:</h3>
+<p>
+  <%= @exam.id %>
+</p>
+
+<h3>State: </h3>
+<p>
+  <%= @exam.state %>
+</p>
+
+<h3>Session ID:</h3>
+<p>
+  <%= @exam.sessionid %>
+</p>
+
+<h3>Questions:</h3>
+<ol class="showing">
+<% for question in @exam.questions %>
+  <li>[<%= question.id %>] <%=h question.body %></li>
+  <ol type="a" class="showing">
+    <% for answer in question.answers %>
+      <li>[<%= answer.id %>] [<%=to_sign answer.correct %>] <%= answer.body %></li>
+    <% end %>
+  </ol>
+
+<% end %>
+</ol>
+<%= link_to 'Back', exams_path %>
+

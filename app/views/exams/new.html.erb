@@ -1,0 +1,40 @@
+<% if @exam.errors.any? %>
+  <div id="errorExplanation">
+    <h2>Invalid data. Can't generate a new exam.</h2>
+    <ul>
+    <% @exam.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div id="info" class="rbox">
+  <h2>Do you really know Ruby?</h2>
+  <p>
+    REXAMINATOR is another one online exam simulator that can help you test and improve your knowledge of
+    <strong>Ruby</strong> programming language.
+  </p>
+  <p>
+    Right now, you can test yourself online with multiple choice test simulator - no user registration required - just go and enjoy:)
+  </p>
+  <p>
+    <strong>NOTE:</strong> This is a test version with only tens of sample questions on board.
+  </p>
+</div>
+
+<div id="start" class="rbox">
+  <h2>&raquo; START HERE &laquo;</h2>
+  <%= form_for @exam do %>
+    <div>
+      <%= label_tag :num_of_questions, 'Number of Questions ' %>
+      <%= text_field_tag :num_of_questions, nil, :size => 3, :maxlength => 3, :title => 'Number of questions for new exam (1-30)' %>
+    </div>
+    <div id="newexambutton">
+      <%= submit_tag "Generate New Exam", :title => "Click to generate new exam", :class => "rbutton" %>
+    </div>
+  <% end %>
+</div>
+
+<div id="newexamloader"></div>
+

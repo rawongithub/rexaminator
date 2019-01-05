@@ -1,0 +1,30 @@
+<h2>Feedback id: <%= @feedback.id %></h2>
+
+<h3>Category:</h3>
+<div class="rbox">
+  <p><%= @feedback.category %></p>
+</div>
+
+<h3>Body:</h3>
+<div class="rbox">
+  <p><pre><%= @feedback.body %></pre></p>
+</div>
+
+<h3>Author:</h3>
+<div class="rbox">
+  <p><%= @feedback.author %></p>
+</div>
+
+<h3>Created:</h3>
+<div class="rbox">
+  <p><%= @feedback.created_at %></p>
+</div>
+
+<h3>Question ID:</h3>
+<div class="rbox">
+  <p><%=link_to @feedback.question_id, question_path(@feedback.question) %></p>
+</div>
+
+<%= link_to 'Destroy', @feedback, :confirm => "Are you sure?", :method => :delete %> |
+<%= link_to 'Back', feedbacks_path %>
+

@@ -1,0 +1,39 @@
+<h2>Questions (<%= @num_of_questions %>)</h2>
+
+<p>
+  active: <%= @active_count %>,
+  inactive: <%= @inactive_count %>
+</p>
+
+<%= link_to 'New question', new_question_path -%>
+
+<%= will_paginate @questions %>
+<table class="listing">
+  <tr>
+    <th>ID</th>
+    <th>Body</th>
+    <th>Active</th>
+    <th>Categories</th>
+    <th></th>
+  </tr>
+<% for question in @questions %>
+  <tr class="<%= cycle('even', 'odd') -%>">
+    <td class="center"><%= question.id %></td>
+    <td><%=raw textilize(question.body) -%></td>
+    <td><%= question.active -%></td>
+    <td>
+      <ul>
+        <% question.categories.each do |category| -%>
+          <li><%= category.name  %></li>
+        <% end -%>
+      </ul>
+    </td>
+    <td>
+      <div><%= link_to 'Show', question -%></div>
+      <div><%= link_to 'Edit', edit_question_path(question) -%></div>
+      <div><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete -%></div>
+    </td>
+  </tr>
+<% end %>
+</table>
+

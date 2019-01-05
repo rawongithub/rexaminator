@@ -1,0 +1,11 @@
+<% unless @question.feedbacks.empty? %>
+<h3>Feedbacks:</h3>
+  <% for feedback in @question.feedbacks %>
+    <div class="rbox">
+      <p><%= yes_no feedback.active, 'Active', 'Inactive' %></p>
+      <p><pre><%= feedback.body %></pre></p>
+      <%= link_to 'Show', feedback %>
+    </div>
+  <% end -%>
+<% end %>
+

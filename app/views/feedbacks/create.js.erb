@@ -1,0 +1,6 @@
+$('#newexamloader').hide();
+$('#errorExplanation').remove();
+$('p.notice').remove();
+$('#feedback').hide();
+$('#feedback').before("<p class='notice'><%= escape_javascript flash.delete(:notice) %></p>");
+

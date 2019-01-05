@@ -1,0 +1,95 @@
+/* CSS Document */
+body {
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  color: #fff;
+  background-color: #000;
+}
+
+div#page {
+  max-width: 960px;
+  min-width: 350px;
+  margin: 10px auto;
+  padding: 0 20px;
+}
+div#header {
+  position:relative;
+  overflow:hidden;
+  margin:0px 20px 8px;
+  color:#e5e5e5;
+}
+  div#header h1 {
+    float:left;
+    width: 12em;
+    font-size:2em;
+    margin-top:0.75em;
+    line-height:1em;
+  }
+    div#header h1 span {
+      font-size:75%;
+      color:#ff9000;
+    }
+    div#header h1 sup {
+      font-size:75%;
+      line-height:50%;
+      vertical-align:top;
+      color:#4d4d4d;
+      font-style: italic;
+    }
+div#wrap {
+  margin:0;
+  padding:15px;
+  border:2px solid #bfbfbf;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-color:#000;
+  text-align:center; /*ie center*/
+  overflow:hidden;
+}
+div#nav {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:1em;
+}
+  div#nav ul li{
+    display:inline;
+    margin-left:20px;
+  }
+  div#nav a {
+    text-decoration:none;
+    color:#7f7f7f;
+  }
+    div#nav a:hover {
+      text-decoration:underline;
+      color:#fff;
+    }
+
+div#content {
+  margin:20px;
+  background-color:#000	;
+  text-align:left;
+  overflow:hidden;
+}
+  div#content h2 {
+    font-size:1.2em;
+    color:#ff9000;
+  }
+  #content h3 {
+    margin: 15px 0 7px;
+    font-size:1em;
+    color:#ff9000;
+  }
+#copyright {
+  margin:0 0 20px 0;
+  font-size:0.8em;
+  text-align:center;
+  font-weight:bolder;
+}
+  #copyright p {
+    vertical-align: middle;
+    margin-left: 0.1em;
+  }
+  #copyright a {
+    color:#ff9000;
+  }

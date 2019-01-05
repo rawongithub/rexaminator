@@ -1,0 +1,34 @@
+<h2>Exams (<%= @num_of_exams %>)</h2>
+
+<p>
+  generated: <%= @generated_count %>,
+  started: <%= @started_count %>,
+  checked: <%= @checked_count %>,
+  completed: <%= @completed_count %>
+</p>
+
+<%= will_paginate @exams %>
+
+<table class="listing">
+  <tr>
+    <th>id</th>
+    <th>state</th>
+    <th>sessionid</th>
+    <th>created at</th>
+    <th></th>
+  </tr>
+
+<% for exam in @exams %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= exam.id %></td>
+    <td><%= exam.state %></td>
+    <td><%= exam.sessionid %></td>
+    <td><%= exam.created_at.to_s(:db) %></td>
+    <td>
+      <div><%= link_to 'Show', exam %></div>
+      <div><%= link_to 'Destroy', exam, :confirm => 'Are you sure?', :method => :delete %></div>
+    </td>
+  </tr>
+<% end %>
+</table>
+

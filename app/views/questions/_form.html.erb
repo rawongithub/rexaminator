@@ -1,0 +1,54 @@
+<% if @question.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+    <ul>
+    <% @question.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @question do |f| %>
+
+  <h3>Active: <%= f.check_box :active %> </h3>
+  <h3>Categories:</h3>
+  <p>
+    <ul id="categories">
+      <% @categories.each do |category| %>
+        <li>
+          <%= check_box_tag "question[category_ids][]", category.id, @question.categories.include?(category) %>
+          <%= category.name %>
+        </li>
+      <% end -%>
+    </ul>
+  </p>
+  <h3>Body:</h3>
+  <p>
+    <%= f.text_area :body, :cols => 80, :rows => 2, :class => 'autogrow' %>
+  </p>
+
+  <h3>Answers:</h3>
+  <p>
+    <table>
+      <tr>
+        <th><%= label :body, 'Body' %></th>
+        <th><%= label :correct, 'Correct' %></th>
+      </tr>
+      <%= f.fields_for :answers do |a| -%>
+      <tr>
+        <td><%= a.text_area :body, :cols => 80, :rows => 2, :class => 'autogrow' %></td>
+        <td><%= a.check_box :correct %></td>
+      </tr>
+      <% end -%>
+    </table>
+  </p>
+  <h3>Comment:</h3>
+  <p>
+    <%= f.text_area :comment, :cols => 80, :rows => 2, :class => 'autogrow' %>
+  </p>
+  <p>
+    <%= f.submit submit_text %>
+  </p>
+<% end %>
+

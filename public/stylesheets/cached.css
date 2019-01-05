@@ -1,0 +1,720 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height:1em;
+}
+ol,ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+/* CSS Document */
+body {
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  color: #fff;
+  background-color: #000;
+}
+
+div#page {
+  max-width: 960px;
+  min-width: 350px;
+  margin: 10px auto;
+  padding: 0 20px;
+}
+div#header {
+  position:relative;
+  overflow:hidden;
+  margin:0px 20px 8px;
+  color:#e5e5e5;
+}
+  div#header h1 {
+    float:left;
+    width: 12em;
+    font-size:2em;
+    margin-top:0.75em;
+    line-height:1em;
+  }
+    div#header h1 span {
+      font-size:75%;
+      color:#ff9000;
+    }
+    div#header h1 sup {
+      font-size:75%;
+      line-height:50%;
+      vertical-align:top;
+      color:#4d4d4d;
+      font-style: italic;
+    }
+div#wrap {
+  margin:0;
+  padding:15px;
+  border:2px solid #bfbfbf;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-color:#000;
+  text-align:center; /*ie center*/
+  overflow:hidden;
+}
+div#nav {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:1em;
+}
+  div#nav ul li{
+    display:inline;
+    margin-left:20px;
+  }
+  div#nav a {
+    text-decoration:none;
+    color:#7f7f7f;
+  }
+    div#nav a:hover {
+      text-decoration:underline;
+      color:#fff;
+    }
+
+div#content {
+  margin:20px;
+  background-color:#000	;
+  text-align:left;
+  overflow:hidden;
+}
+  div#content h2 {
+    font-size:1.2em;
+    color:#ff9000;
+  }
+  #content h3 {
+    margin: 15px 0 7px;
+    font-size:1em;
+    color:#ff9000;
+  }
+#copyright {
+  margin:0 0 20px 0;
+  font-size:0.8em;
+  text-align:center;
+  font-weight:bolder;
+}
+  #copyright p {
+    vertical-align: middle;
+    margin-left: 0.1em;
+  }
+  #copyright a {
+    color:#ff9000;
+  }
+
+
+p {
+  margin:15px 0 5px;
+  line-height:1.5em;
+}
+
+div#question h2,
+div#content h2 {
+  margin:20px 0 20px 0;
+}
+
+div#question h3 {
+  margin:10px 0 0 0;
+}
+
+.inline {
+  display:inline;
+}
+
+form table td,
+form table th {
+  text-align: center;
+  vertical-align: middle;
+}
+div#info {
+  float:left;
+  min-width:300px;
+  width:55%;
+  text-align:justify;
+}
+div#start {
+  float:right;
+  min-width:300px;
+  width:25%;
+  text-align:center;
+  background:#2b2b2b;
+  border-color:#606060;
+}
+div#info,
+div#start {
+  position: relative;
+  min-height:23em;
+  padding-bottom: 40px;
+}
+div.addthis_toolbox {
+  position:absolute;
+  bottom: 20px;
+  left: 30px;
+}
+div.plusone {
+  position:absolute;
+  bottom: 18px;
+  right: 30px;
+}
+div#info h2,
+div#start h2 {
+  margin:15px 0;
+}
+div#info p {
+  margin:10px 10px 15px 10px;
+  text-align:justify;
+}
+div#start div {
+  margin:20px auto;
+}
+div.infostart {
+  float:left;
+  width:43%;
+}
+div.infoexport{
+  float:right;
+  width:43%;
+}
+div.infostart,
+div.infoexport{
+  min-height:12em;
+}
+pre {
+  margin:3px;
+  padding:3px;
+  font-family: 'Courier New', monospace;
+}
+code {
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+  line-height: 1.4;
+}
+
+div.question_body code,
+table.listing code {
+  display:block;
+  padding:10px 15px;
+  margin:10px 0;
+  border: 1px dotted #4d4d4d;
+  color:#ffa500;
+  background:#000;
+}
+a {
+  color:#7f7f7f;
+  text-decoration:none;
+  cursor:pointer;
+}
+a:visited {}
+a:hover {
+  color: #e5e5e5;
+  text-decoration: underline;
+}
+.right {
+  text-align: right;
+}
+.left {
+  text-align:left;
+}
+.center {
+  text-align:center;
+}
+.justify {
+  text-align:justify;
+}
+#pagination_container {
+  position:relative;
+  margin:0 20px;
+  z-index:20;
+  text-align:center;
+/*  overflow:hidden;*/
+}
+ul#questions_pagination {
+  width:100%;
+  overflow:hidden;
+}
+.pagination {
+  text-align:center;
+}
+#questions_pagination li {
+  display:block;
+  float:left;
+  width:1.8em;
+  margin:2px;
+  text-align:center;
+  border:1px solid #999;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+
+}
+#questions_pagination li a {
+  display:block;
+  width:1.8em;
+  height:1.8em;
+  line-height:1.8em;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+#questions_pagination li a:hover {
+  color:#000;
+  background:#ff9000;
+}
+#questions_pagination li.current {
+  display:block;
+  float:left;
+  color:#fff;
+  width:1.8em;
+  height:1.8em;
+  line-height:1.8em;
+  border:1px solid #fff;
+  background:#ff9000;
+}
+.loaded a, .viewed a, .completed a {
+  text-decoration: none
+}
+.loaded, .loaded a {
+  color:#7f7f7f;
+}
+#questions_pagination li.loaded{
+  border-color: #7f7f7f;
+}
+.viewed, .viewed a {
+  color:#ff9000;
+}
+#questions_pagination li.viewed{
+  border-color: #7f7f7f;
+}
+.completed, .completed a {
+  color:#ff9000;
+}
+#questions_pagination li.completed{
+  border-color: #ff9000;
+}
+#finish_button {
+  position:absolute;
+  display:block;
+  top:-1.4em;
+  left:0;
+  width:100%;
+  vertical-align:middle;
+  text-align:center;
+  height:1.6em;
+  line-height:1.6em;
+
+}
+#finish_button a {
+  margin:0 auto;
+  height:1.6em;
+  width:7em;
+  background:#1a1a1a;
+  z-index:30;
+}
+div#question {
+  position:relative;
+  margin: 35px 0 0 0;
+  text-align:justify;
+  color:#bfbfbf;
+  background:#000;
+  border-top:1px solid #ff9000;
+  clear:left;
+}
+div#question div.pagination .previous_page,
+div#question div.pagination .next_page {
+  position:absolute;
+  display:block;
+  width:6em;
+  height:1.6em;
+  line-height:1.6em;
+  top:-1.4em;
+  border: 1px solid #ff9000;
+  color:#1a1a1a;
+  background: #1a1a1a;
+  z-index:30;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+div#question div.pagination .next_page {
+  right:20px;
+}
+div#question div.pagination .previous_page {
+  left:20px;
+}
+div#question div.pagination a.previous_page,
+div#question div.pagination a.next_page {
+  text-decoration:none;
+  color:#ff9000;
+/*  background:#000;*/
+}
+div#question div.pagination a.previous_page:hover,
+div#question  div.pagination a.next_page:hover {
+  text-decoration:none;
+  color:#fff;
+  background:#ff9000;
+  border:1px solid #fff;
+}
+.rbutton {
+  display:block;
+  color:#ff9000;
+  text-align:center;
+  border: 1px solid #ff9000;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+.rbutton:hover {
+  text-decoration:none;
+  color:#fff;
+  background:#ff9000 !important;
+  border: 1px solid #fff;
+  cursor:pointer;
+}
+div.rbox {
+  margin: 5px 0;
+  padding:10px 20px;
+  text-align:justify;
+  color: #e5e5e5;
+  background:#111;
+  border:1px solid #404040;
+  -webkit	 -border-radius: 12px;
+  -moz-border-radius: 12px;
+  overflow:auto;
+}
+div.rbox p {
+  margin-top:5px;
+}
+div.rbox em {
+  color:#ffa500;
+}
+ol.questions_summary {
+  display:block;
+  width:98%;
+  margin:30px auto;
+  overflow:hidden;
+}
+ol.questions_summary li {
+  width:7.5em;
+  display:block;
+  float:left;
+  margin:0 10px;
+}
+ol.questions_summary li span.correct {
+  color:green;
+}
+ol.questions_summary li span.incorrect {
+  color:red;
+}
+ol.questions_summary li a {
+  display:block;
+  float:left;
+  width:7.5em;
+  margin:5px;
+}
+div.question_body{
+  margin:0 0 15px 0
+}
+div#answers {
+  position: relative;
+  margin:5px 0 0 0;
+  border:1px solid #404040;
+  border-collapse:collapse;
+  overflow:auto;
+}
+div#answers input#exam_question_submit {
+  display: block;
+  margin: 0 auto;
+}
+table.answers_go,
+table.answers_review {
+  width: 100%;
+  margin: 10px 0;
+}
+table.answers_go td,
+table.answers_review td{
+  padding:5px;
+  border:1px solid #404040;
+}
+table.answers_go td.checkbox,
+table.answers_review td.checkbox{
+  padding:0;
+  width:2em;
+  text-align:center;
+  vertical-align:middle;
+}
+table.answers_go td.checkbox input,
+table.answers_review td.checkbox input{
+  width:1.2em;
+  height:1.2em;
+  padding:0;
+}
+table.answers_go td.answer,
+table.answers_review td.answer {
+  text-align:left;
+}
+table.answers_review td.false {
+  background-color:#770000
+}
+table.answers_review td.true {
+  background-color:#003300
+}
+
+table.answers_review th {
+  font-size: 0.8em;
+  text-align:left;
+  line-height:1.5em;
+}
+
+input, textarea {
+  color:#e5e5e5;
+  background:transparent;
+  border:1px solid #4d4d4d;
+  font-size:1em;
+  margin:5px;
+  padding:5px;
+  font-family:inherit;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+
+input:hover,
+textarea:hover {
+  background:#0d0d0d;
+  border:1px solid #7f7f7f;
+}
+input:focus,
+textarea:focus {
+  color:#fff;
+  background:#000;
+  border:1px solid #fff;
+}
+textarea#why {
+  width:180px;
+  border: 1px solid black;
+  background:#e5e5e5;
+}
+table.listing{
+  width:99%;
+  margin:10px auto;
+}
+table.listing tr.odd{
+  background-color:#1a1a1a;
+}
+table.listing tr.even{
+  background-color:#313131;
+}
+table.listing td,
+table.listing th{
+  padding:5px;
+  border:1px solid #4d4d4d;
+  vertical-align:middle;
+}
+ol.showing{
+  margin-left:1em;
+}
+.fieldWithErrors {
+  background-color: red;
+  display: table;
+}
+#errorExplanation {
+  font-size:0.8em;
+  margin:0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+/*  background-color: #070000;*/
+  border: 1px solid #860000;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+}
+#errorExplanation h2 {
+  margin:0 !important;
+  font-size: 0.8em;
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  background-color: #860000;
+  color: #e5e5e5 !important;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  border-radius-topleft: 8px
+  border-radius-topright: 8px
+}
+#errorExplanation p {
+  margin:10px 20px 5px;
+  font-weight:bold;
+}
+#errorExplanation ul {
+  margin: 15px 0 0 0;
+}
+  #errorExplanation ul li {
+    list-style: square;
+    margin: 2px 20px;
+    list-style-position: inside;
+  }
+
+.notice, .error {
+  font-size:0.8em;
+  margin:0;
+  padding: 10px 15px;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.notice {
+  color:#abffab;
+  background-color:#004400;
+  border-color:#009000;
+}
+.error {
+  color:#c80000;
+  background-color: #ffd4db;
+  border-color:#c80000;
+}
+div#question div.pagination .disabled{
+  display: none;
+}
+a.navlink {
+  display:block;
+  width:4em;
+/*  margin:0;*/
+}
+span#score {
+  font-size:2em;
+}
+ul#startmenu {
+  display:block;
+  width:12em;
+  margin:20px auto;
+  text-align:center;
+  overflow:hidden;
+}
+ul#startmenu li {
+  display:inline;
+/*  float:left;*/
+}
+ul#startmenu li a {
+  margin:20px auto 10px;
+  padding:8px 0 0 0;
+  height:1.6em;
+  width:10em;
+}
+
+div#newexamloader {
+  display:none;
+  position:absolute;
+  top:0px;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background:#000000 url('/images/ajax-loader.gif') center center no-repeat;
+  opacity:0.75;
+  filter: alpha(opacity = 75);
+}
+div#newexambutton input {
+  width:12em;
+  margin:0 auto;
+}
+ul#categories {
+  margin-bottom:10px;
+  overflow:hidden;
+}
+ul#categories li {
+  display:block;
+  width:13.5em;
+  float:left;
+}
+ul#scoresummary {
+  text-align:center;
+}
+ul#scoresummary li {
+  display:inline;
+  cursor: help;
+  color:#7f7f7f;
+}
+ul#scoresummary li:hover {
+  color:#fff;
+}
+
+p#feedback_link {
+  margin:0 20px 10px;
+/*  padding:10px 0;*/
+  color:#bfbfbf;
+  font-size:0.8em;
+}
+a.jslink {
+  color:#ff9000;
+}
+
+div#feedback {
+  display:none;
+  font-size:0.8em;
+}
+
+div#feedback h4 {
+  float:left;
+  min-width:6em;
+  width:15%;
+  margin:0;
+}
+div#feedback input,
+div#feedback select,
+div#feedback textarea {
+  margin:0;
+  width:70%;
+}
+div#feedback input[type='submit'] {
+  width:10em;
+  margin:10px 0 10px 15%;
+  cursor:pointer;
+}
+div#feedback input[type='submit']:hover {
+  color:#fff;
+  background:#000;
+  border-color:#fff;
+
+}
+
